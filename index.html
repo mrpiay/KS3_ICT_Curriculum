@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS3 Computing & ICT — A Progressive 3-Year Curriculum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e3e7ee 0%, #aab2c0 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .tagline {
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 14px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .header .credit {
+            font-size: 0.9em;
+            opacity: 0.85;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .intro-section {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .intro-section p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .map-section {
+            margin-bottom: 30px;
+        }
+
+        .map-section h2 {
+            color: #667eea;
+            margin-bottom: 6px;
+            font-size: 1.6em;
+            text-align: center;
+        }
+
+        .map-section .map-sub {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 18px;
+        }
+
+        .map-scroll {
+            overflow-x: auto;
+        }
+
+        table.map {
+            border-collapse: separate;
+            border-spacing: 6px;
+            width: 100%;
+            min-width: 640px;
+        }
+
+        table.map th {
+            padding: 10px 12px;
+            font-size: 0.95em;
+            border-radius: 8px;
+            color: white;
+        }
+
+        table.map th.ht {
+            background: #555;
+            width: 60px;
+        }
+
+        table.map th.y7 { background: linear-gradient(135deg, #667eea, #5566c4); }
+        table.map th.y8 { background: linear-gradient(135deg, #2c8c7d, #1f6f63); }
+        table.map th.y9 { background: linear-gradient(135deg, #764ba2, #5e3b84); }
+
+        table.map td.htlabel {
+            background: #555;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 8px;
+            width: 60px;
+        }
+
+        table.map td.cell {
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #333;
+            vertical-align: top;
+        }
+
+        table.map td.cell .tag {
+            display: block;
+            font-size: 0.72em;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            opacity: 0.7;
+            margin-bottom: 2px;
+            font-weight: 700;
+        }
+
+        table.map td.cell .desc {
+            display: block;
+            margin-top: 4px;
+            font-size: 0.78em;
+            font-style: italic;
+            opacity: 0.72;
+            line-height: 1.3;
+        }
+
+        /* strand colours */
+        .s-ms365   { background: #dbe4ff; }
+        .s-theory  { background: #e9ecef; }
+        .s-creators{ background: #ffe0ef; }
+        .s-scratch { background: #ece1fa; }
+        .s-microbit{ background: #ffe6cc; }
+        .s-ai      { background: #d4f1ef; }
+
+        table.map th.cp-head {
+            background: linear-gradient(135deg, #f6a609, #e08e00);
+            width: 46px;
+        }
+
+        table.map td.cp-strand {
+            background: linear-gradient(180deg, #f6a609 0%, #e08e00 100%);
+            color: white;
+            border-radius: 8px;
+            width: 46px;
+            text-align: center;
+            vertical-align: middle;
+            padding: 6px;
+        }
+
+        table.map td.cp-strand span {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            font-size: 0.95em;
+            display: inline-block;
+        }
+
+        .driver {
+            background: linear-gradient(135deg, #fff4d6 0%, #ffe9b8 100%);
+            border-left: 5px solid #f6a609;
+            padding: 28px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .driver h2 {
+            color: #b9770a;
+            margin-bottom: 12px;
+            font-size: 1.6em;
+        }
+
+        .driver p {
+            line-height: 1.8;
+            color: #5a4a2a;
+            margin-bottom: 12px;
+        }
+
+        .driver a {
+            color: #b9770a;
+            font-weight: 600;
+        }
+
+        table.milestones {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 12px 0 18px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+        }
+
+        table.milestones td {
+            padding: 9px 14px;
+            border-top: 1px solid #f0e2bf;
+            font-size: 0.92em;
+            color: #5a4a1f;
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        table.milestones tr:first-child td { border-top: none; }
+
+        table.milestones td:first-child {
+            white-space: nowrap;
+            font-weight: 700;
+            color: #b9770a;
+        }
+
+        .chips {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 14px 0;
+        }
+
+        .chips li {
+            background: white;
+            border: 1px solid #f0c668;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            color: #7a5a12;
+            font-weight: 600;
+        }
+
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .collapsible {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            padding: 20px 25px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-top: 15px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .collapsible:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .collapsible.active {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .collapsible.strands {
+            background: linear-gradient(135deg, #2c8c7d 0%, #1f6f63 100%);
+            box-shadow: 0 4px 15px rgba(44, 140, 125, 0.3);
+        }
+
+        .collapsible::after {
+            content: '\002B';
+            font-size: 1.5em;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active::after {
+            content: "\2212";
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+            margin-bottom: 15px;
+        }
+
+        .collapsible-content-inner {
+            padding: 25px;
+        }
+
+        .year-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+
+        .term {
+            background: white;
+            border-left: 3px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .term h3 {
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            display: flex;
+            align-items: center;
+        }
+
+        .term h3::before {
+            content: '▸';
+            margin-right: 10px;
+            color: #764ba2;
+        }
+
+        .term p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .term p strong:first-child {
+            background: #ffeaa7;
+            padding: 4px 10px;
+            border-radius: 4px;
+            color: #2d3436;
+        }
+
+        .term p.ext {
+            margin-top: 10px;
+            background: #f4f0fb;
+            border-left: 3px dashed #9b7fd4;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .term p.ext strong:first-child {
+            background: none;
+            padding: 0;
+            color: #6f4fb0;
+        }
+
+        .strand {
+            background: white;
+            border-left: 3px solid #2c8c7d;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .strand h3 {
+            color: #1f6f63;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+        }
+
+        .strand p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .strand ul {
+            margin: 8px 0 4px 0;
+            padding-left: 22px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .strand ul li {
+            margin-bottom: 6px;
+        }
+
+        .collapsible.assess {
+            background: linear-gradient(135deg, #c0392b 0%, #922b21 100%);
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.3);
+        }
+
+        .assess-intro {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .assess-intro ul {
+            margin: 10px 0 10px 0;
+            padding-left: 22px;
+        }
+
+        .assess-intro li {
+            margin-bottom: 6px;
+        }
+
+        .rubric-scroll {
+            overflow-x: auto;
+            margin-top: 10px;
+        }
+
+        table.rubric {
+            border-collapse: separate;
+            border-spacing: 5px;
+            width: 100%;
+            min-width: 720px;
+        }
+
+        table.rubric th,
+        table.rubric td {
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.82em;
+            line-height: 1.45;
+            vertical-align: top;
+            color: #333;
+        }
+
+        table.rubric th.ao,
+        table.rubric td.ao {
+            background: #4a4a4a;
+            color: #fff;
+            text-align: left;
+            width: 150px;
+            font-weight: 700;
+        }
+
+        table.rubric th.b-emerging { background: #e74c3c; color: #fff; }
+        table.rubric th.b-developing { background: #e67e22; color: #fff; }
+        table.rubric th.b-secure { background: #27ae60; color: #fff; }
+        table.rubric th.b-mastery { background: #2980b9; color: #fff; }
+
+        table.rubric td.d-emerging { background: #fdecea; }
+        table.rubric td.d-developing { background: #fdf0e3; }
+        table.rubric td.d-secure { background: #e8f6ee; }
+        table.rubric td.d-mastery { background: #e7f0f9; }
+
+        .progression-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .progression-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .progression-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .progression-section li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .progression-section li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        table.pathway {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        table.pathway th {
+            background: #764ba2;
+            color: white;
+            text-align: left;
+            padding: 10px 14px;
+            font-size: 0.9em;
+        }
+
+        table.pathway td {
+            padding: 9px 14px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        table.pathway td:last-child {
+            white-space: nowrap;
+            font-weight: 600;
+            color: #5e3b84;
+        }
+
+        table.pathway tr:nth-child(even) td { background: #f6f7fb; }
+
+        .footer-note {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            color: #666;
+            font-style: italic;
+            line-height: 1.8;
+            margin-top: 30px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .collapsible {
+                font-size: 1em;
+                padding: 15px 20px;
+            }
+        }
+
+        /* ---- Print / PDF: map as a clean one-page A4 summary ---- */
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 12mm;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                color: #000;
+            }
+
+            .container {
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .header {
+                padding: 14px 20px !important;
+            }
+
+            .header h1 { font-size: 1.5em !important; margin-bottom: 4px !important; }
+            .header p { font-size: 0.85em !important; }
+            .header .credit { margin-top: 6px !important; }
+
+            .content { padding: 14px 18px !important; }
+
+            /* Page 1 = the curriculum map only */
+            .map-section {
+                margin-bottom: 0 !important;
+                page-break-after: always;
+            }
+
+            .map-section h2 { font-size: 1.3em !important; }
+
+            .map-scroll { overflow: visible !important; }
+
+            table.map {
+                min-width: 0 !important;
+                width: 100% !important;
+                border-spacing: 4px;
+            }
+
+            table.map th { padding: 6px 8px !important; font-size: 0.8em !important; }
+            table.map td.cell { padding: 6px 8px !important; font-size: 0.74em !important; line-height: 1.3 !important; }
+            table.map td.cell .tag { font-size: 0.62em !important; }
+            table.map td.htlabel { font-size: 0.8em !important; }
+            table.map th.cp-head, table.map td.cp-strand { width: 26px !important; padding: 3px !important; }
+            table.map td.cp-strand span { font-size: 0.66em !important; letter-spacing: 0 !important; }
+
+            .rubric-scroll { overflow: visible !important; }
+            table.rubric { min-width: 0 !important; width: 100% !important; border-spacing: 3px; page-break-inside: avoid; }
+            table.rubric th, table.rubric td { padding: 5px 7px !important; font-size: 0.66em !important; line-height: 1.3 !important; }
+
+
+            /* Keep the detail readable in the full printout */
+            .collapsible-content {
+                max-height: none !important;
+                overflow: visible !important;
+            }
+
+            .collapsible {
+                box-shadow: none !important;
+                page-break-after: avoid;
+            }
+
+            .collapsible::after { content: '' !important; }
+
+            .driver, .intro-section, .strand, .term, .progression-section li {
+                box-shadow: none !important;
+                page-break-inside: avoid;
+            }
+
+            a { color: #000 !important; text-decoration: underline; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💻 KS3 Computing & ICT Curriculum</h1>
+            <p class="tagline">A Progressive 3-Year Curriculum · Years 7–9</p>
+            <p>Building confident, creative, and responsible digital citizens</p>
+            <p class="credit">Created by Mr. Piay</p>
+        </div>
+
+        <div class="content">
+
+            <!-- Curriculum Map (one-page overview) -->
+            <div class="map-section">
+                <h2>🗺️ KS3 Curriculum Map — At a Glance</h2>
+                <p class="map-sub">The whole of Key Stage 3 on one page. Read <strong>down each column</strong> for a year's term-by-term journey (HT1 → HT6); read <strong>across each row</strong> to see how a strand deepens from Year 7 to Year 9 (<strong>colours</strong> mark the strands).</p>
+                <div class="map-scroll">
+                    <table class="map">
+                        <thead>
+                            <tr>
+                                <th class="ht"></th>
+                                <th class="y7">YEAR 7 — Foundations & Digital Literacy</th>
+                                <th class="y8">YEAR 8 — Systems, Logic & Creativity</th>
+                                <th class="y9">YEAR 9 — Programming, Systems & AI</th>
+                                <th class="cp-head">🚀</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="htlabel">HT1</td>
+                                <td class="cell s-ms365"><span class="tag">Microsoft 365 I</span>Getting Started<span class="desc">OneDrive · email · Word · PowerPoint · Excel basics</span></td>
+                                <td class="cell s-ms365"><span class="tag">Microsoft 365 II</span>Building Fluency<span class="desc">Word · PowerPoint · Excel data analysis · collaboration</span></td>
+                                <td class="cell s-ms365"><span class="tag">Microsoft 365 III</span>Independent &amp; Efficient<span class="desc">polished apps · advanced Excel (pivot tables)</span></td>
+                                <td rowspan="6" class="cp-strand"><span>Coolest Projects</span></td>
+                            </tr>
+                            <tr>
+                                <td class="htlabel">HT2</td>
+                                <td class="cell s-theory"><span class="tag">Computer Science</span>Algorithms, Logic &amp; Computer Basics<span class="desc">algorithms · flowcharts · Turing Tumble · computer parts</span></td>
+                                <td class="cell s-theory"><span class="tag">Computer Science</span>Number Systems &amp; Logic<span class="desc">binary &amp; number systems · logic gates · truth tables</span></td>
+                                <td class="cell s-theory"><span class="tag">Computer Science</span>Computer Systems, Networks &amp; Data<span class="desc">CPU &amp; fetch–execute · networks · data representation</span></td>
+                            </tr>
+                            <tr>
+                                <td class="htlabel">HT3</td>
+                                <td class="cell s-scratch"><span class="tag">Scratch I</span>Introduction to Programming<span class="desc">sequence · variables · loops · conditionals</span></td>
+                                <td class="cell s-scratch"><span class="tag">Scratch II</span>Procedures &amp; Procedural Graphics<span class="desc">procedures · randomness · pen tool</span></td>
+                                <td class="cell s-scratch"><span class="tag">Scratch III</span>Animations, Games &amp; Simulations<span class="desc">sprites · cloning · events · simulations</span></td>
+                            </tr>
+                            <tr>
+                                <td class="htlabel">HT4</td>
+                                <td class="cell s-microbit"><span class="tag">Micro:bit I</span>Introduction to Physical Computing<span class="desc">LEDs · buttons · inputs/outputs · flashing</span></td>
+                                <td class="cell s-microbit"><span class="tag">Micro:bit II</span>Sensors &amp; Data<span class="desc">on-board sensors · responding to data</span></td>
+                                <td class="cell s-microbit"><span class="tag">Micro:bit III</span>Communication, IoT &amp; Python<span class="desc">radio · IoT networks · first Python</span></td>
+                            </tr>
+                            <tr>
+                                <td class="htlabel">HT5</td>
+                                <td class="cell s-creators"><span class="tag">Minecraft I</span>Explore &amp; Build<span class="desc">explore · build · collaborate · Agent</span></td>
+                                <td class="cell s-creators"><span class="tag">Minecraft II</span>Build &amp; Code<span class="desc">Code Builder · loops &amp; coordinates · STEAM</span></td>
+                                <td class="cell s-creators"><span class="tag">Minecraft III</span>Code &amp; Create<span class="desc">MakeCode &amp; Python · problem-solving capstone</span></td>
+                            </tr>
+                            <tr>
+                                <td class="htlabel">HT6</td>
+                                <td class="cell s-ai"><span class="tag">Artificial Intelligence</span>AI Foundations — Introducing AI<span class="desc">what AI is · everyday AI · responsible use</span></td>
+                                <td class="cell s-ai"><span class="tag">Artificial Intelligence</span>AI Literacy — How AI Works<span class="desc">how AI works · benefits &amp; limits · ethics</span></td>
+                                <td class="cell s-ai"><span class="tag">Artificial Intelligence</span>Experience AI — Foundations &amp; Innovation<span class="desc">machine learning · interactive AI · bias &amp; ethics</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Coolest Projects — Driving Challenge -->
+            <div class="driver">
+                <h2>🚀 Coolest Projects — Our Driving Goal</h2>
+                <p>Coolest Projects runs as a <strong>parallel strand across KS3</strong>: alongside the taught units, <strong>regular time is devoted to learning and developing</strong> an original digital creation. Students don't only <em>apply</em> skills from the units — they also <strong>learn the new things their project needs</strong>, building genuine ownership, independence, and pride in their work.</p>
+                <p>🌐 <strong>Coolest Projects Online 2026:</strong> <a href="https://online.coolestprojects.org/cp-online-2026" target="_blank" rel="noopener">cp-online-2026</a> &nbsp;•&nbsp; 📋 <strong>Categories:</strong> <a href="https://online.coolestprojects.org/categories" target="_blank" rel="noopener">categories</a> &nbsp;•&nbsp; ℹ️ <strong>About:</strong> <a href="https://online.coolestprojects.org/about-us" target="_blank" rel="noopener">about-us</a></p>
+                <p>Each creation fits an official <strong>category</strong>:</p>
+                <ul class="chips">
+                    <li>🧩 Scratch</li>
+                    <li>📱 Mobile Apps</li>
+                    <li>🌍 Web</li>
+                    <li>🎮 Games</li>
+                    <li>🔌 Hardware</li>
+                    <li>💻 Advanced Programming</li>
+                    <li>🤖 Artificial Intelligence</li>
+                </ul>
+                <p><strong>A flexible, multi-year journey.</strong> Projects need not be finished in a single year — an ambitious creation can be <strong>started in one year and continued and completed in a later one</strong>, so students can pursue genuinely substantial builds over time. The work culminates in a <strong>showcase</strong> — primarily an <strong>in-school celebration event</strong> where students present their creations to peers, staff, and families. Entering <strong>Coolest Projects Online</strong> is an optional, additional route for those who want to share their work globally.</p>
+                <h3 style="color:#b9770a; margin:18px 0 8px; font-size:1.15em;">Milestones across the year</h3>
+                <table class="milestones">
+                    <tbody>
+                        <tr><td>HT1 · Autumn — Discover &amp; Propose</td><td>Explore the categories; <strong>start a new idea or continue a previous project</strong>; agree a short plan.</td></tr>
+                        <tr><td>HT2–HT4 · Autumn–Spring — Learn &amp; Develop</td><td><strong>Dedicated time each half-term</strong> to learn the skills the project needs and build it, with <strong>progress reviews</strong> and peer feedback.</td></tr>
+                        <tr><td>HT5 · Summer — Finalise</td><td>Test, polish, and prepare to present <em>(and, optionally, <strong>enter Coolest Projects Online</strong>)</em>.</td></tr>
+                        <tr><td>HT6 · Summer — Showcase &amp; Reflect</td><td>Present at an <strong>in-school showcase event</strong>; celebrate and reflect against the rubric. <em>Ambitious projects may carry on into the next year.</em></td></tr>
+                    </tbody>
+                </table>
+                <p><strong>Assessment:</strong> the project is the flagship <strong>AO4 — Creativity, Design &amp; Project Work</strong> strand (with <strong>AO1 Programming</strong> where it involves code). <em>Formative</em> — the plan, progress reviews, and peer feedback. <em>Summative</em> — each year, the project's <strong>progress and showcase presentation</strong> are judged against the <strong>Emerging → Developing → Secure → Mastery</strong> rubric (a multi-year project is credited for <strong>that year's development</strong>, not only its final completion).</p>
+            </div>
+
+            <!-- E-Safety intro -->
+            <div class="intro-section">
+                <h2>E-Safety and Digital Responsibility Across KS3</h2>
+                <p>E-safety is explicitly taught at the start of each year (within the Year 7, 8 and 9 HT1 units) and embedded across all areas of study as part of a holistic approach to responsible computing. Throughout every topic, students are consistently reminded to use technology safely, ethically, and responsibly—whether they are communicating online, programming, managing data, creating digital content, controlling physical devices, or engaging with emerging technologies such as Artificial Intelligence.</p>
+            </div>
+
+            <!-- Cross-KS3 Strands -->
+            <button class="collapsible strands">
+                <span><span class="year-badge">STRANDS</span>Progressive Strands & Approaches Across KS3</span>
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-content-inner">
+                    <p style="margin-bottom: 22px; font-style: italic; color: #666;">Several strands spiral through all three years, each deepening from Year 7 to Year 9 so that skills are continually revisited, reinforced, and extended.</p>
+
+                    <div class="strand">
+                        <h3>🗂️ Microsoft 365 — Core Productivity Skills</h3>
+                        <p>Every year <strong>begins with a Microsoft 365 unit focused on progressively mastering the core productivity apps</strong> — students <strong>learn and practise Word, Excel, PowerPoint, OneDrive, Teams and email</strong>:</p>
+                        <ul>
+                            <li><strong>Year 7 (Part I) · Getting started:</strong> Save/organise in <strong>OneDrive</strong>; use <strong>Teams</strong> and <strong>email</strong>; simple <strong>Word</strong> documents and <strong>PowerPoint</strong> presentations; first steps in <strong>Excel</strong> (entering data, a chart).</li>
+                            <li><strong>Year 8 (Part II) · Building fluency:</strong> Collaborate in <strong>OneDrive</strong>; professional email; structured <strong>Word</strong> documents (formatting, tables, images); effective <strong>PowerPoint</strong> design; <strong>Excel</strong> data analysis (formulas, charts, sort/filter).</li>
+                            <li><strong>Year 9 (Part III) · Independent &amp; efficient:</strong> Polished, audience-appropriate work across the apps, and <strong>advanced Excel</strong> (functions, pivot tables, dashboards) for real data analysis.</li>
+                        </ul>
+                    </div>
+
+                    <div class="strand">
+                        <h3>🖥️ Computer Science — Computational Thinking &amp; Theory</h3>
+                        <p>The <strong>HT2 unit each year</strong> develops core <strong>Computer Science</strong> — computational thinking and the theory of how computers work — bridging toward GCSE, brought to life with hands-on <strong>apps, tools and simulators</strong> (see <em>Interactive Tools &amp; Simulators</em> below):</p>
+                        <ul>
+                            <li><strong>Year 7 — Algorithms, Logic &amp; Computer Basics:</strong> <strong>algorithms</strong>, flowcharts &amp; pseudo-code, and the <strong>main parts of a computer</strong> (CPU, memory, I/O).</li>
+                            <li><strong>Year 8 — Number Systems &amp; Logic:</strong> <strong>binary and number systems</strong>; <strong>logic gates and truth tables</strong>.</li>
+                            <li><strong>Year 9 — Computer Systems, Networks &amp; Data:</strong> how computers work (CPU &amp; <strong>fetch–execute cycle</strong>), <strong>how networks and the internet work</strong>, and <strong>data representation</strong> (text, images, sound).</li>
+                        </ul>
+                        <p>Hands-on low-level programming and building logic circuits run as <strong>extension</strong> threads.</p>
+                    </div>
+
+                    <div class="strand">
+                        <h3>🧩 Scratch — Block-Based Programming</h3>
+                        <p>Block-based programming with <a href="https://scratch.mit.edu/" target="_blank" rel="noopener">Scratch</a> gives a consistent, low-barrier route into computational thinking that deepens each year before students move to text-based code:</p>
+                        <ul>
+                            <li><strong>Year 7 — Foundations:</strong> Sequence, variables, loops, and conditionals to control sprites, motion, and interactivity.</li>
+                            <li><strong>Year 8 — Procedures &amp; Procedural Graphics:</strong> Custom blocks (procedures), randomness, and the pen tool; introducing abstraction and decomposition.</li>
+                            <li><strong>Year 9 — Animations, Games &amp; Simulations:</strong> Multiple sprites, cloning, broadcasting/events, and custom scripts for richer games and simulations — a bridge toward Python.</li>
+                        </ul>
+                    </div>
+
+                    <div class="strand">
+                        <h3>🤖 Physical Computing with the BBC Micro:bit</h3>
+                        <p>Physical computing runs as a progressive strand so students repeatedly connect code to the physical world. Students work with <strong>physical BBC Micro:bit devices</strong> — plugging them into the computer to <strong>download (flash) and run</strong> their own programs — alongside the on-screen simulator for quick testing:</p>
+                        <ul>
+                            <li><strong>Year 7 — Foundations:</strong> LEDs, buttons, and simple inputs/outputs in block-based MakeCode.</li>
+                            <li><strong>Year 8 — Sensors &amp; Data:</strong> On-board sensors (temperature, light, accelerometer, compass) to capture, process, and respond to real-world data.</li>
+                            <li><strong>Year 9 — Communication, IoT &amp; Python:</strong> Radio communication and networked/IoT projects in MakeCode, then a <strong>first taste of text-based Python (MicroPython)</strong> — bridging toward GCSE (with fuller Python as an extension).</li>
+                        </ul>
+                    </div>
+
+                    <div class="strand">
+                        <h3>⛏️ Minecraft Education — Creative Coding &amp; Collaboration</h3>
+                        <p>Using <a href="https://education.minecraft.net/en-us" target="_blank" rel="noopener">Minecraft Education</a>, students <strong>build, code, and collaborate</strong> in an engaging shared world. It provides a <strong>collaborative problem-solving environment</strong> where students apply <strong>computational thinking, automation, decomposition, and project management</strong> in meaningful, motivating contexts, while practising <strong>digital citizenship</strong> through respectful teamwork. The built-in <strong>Code Builder</strong> provides block-based and (later) text-based coding, and collaboration runs through every stage:</p>
+                        <ul>
+                            <li><strong>Year 7 — Explore &amp; Build:</strong> Navigate and build collaboratively, practise digital citizenship, and take first steps with <strong>Code Builder</strong> (the Agent and simple block commands).</li>
+                            <li><strong>Year 8 — Build &amp; Code:</strong> Use <strong>loops, conditionals and coordinates</strong> in Code Builder to automate builds, through <strong>cross-curricular STEAM</strong> challenges.</li>
+                            <li><strong>Year 9 — Code &amp; Create:</strong> Code with <strong>MakeCode and a taste of Python</strong>, on larger <strong>collaborative problem-solving</strong> builds linked to CS concepts (and optional AI lessons).</li>
+                        </ul>
+                    </div>
+
+                    <div class="strand">
+                        <h3>🧠 Artificial Intelligence</h3>
+                        <p>As <strong>Artificial Intelligence</strong> rapidly reshapes how people live, learn, and work, students need to <strong>understand how it works, use it responsibly, and think critically about its impact on society</strong>. This AI-literacy strand builds progressively:</p>
+                        <ul>
+                            <li><strong>Year 7 — AI Foundations:</strong> What AI is, <strong>everyday examples</strong> of AI, <strong>using AI tools responsibly</strong>, and a <strong>first hands-on taste</strong> (e.g. Google's Teachable Machine or an Hour of AI activity). <em>(HT6)</em></li>
+                            <li><strong>Year 8 — AI Literacy:</strong> A <strong>responsible-AI-use refresher in HT1</strong> (recognising AI-generated content; checking accuracy and bias), then studying <strong>what AI is and how it works</strong>, its uses, benefits, and limitations; research and present on its impact on society <em>(HT6)</em>.</li>
+                            <li><strong>Year 9 — Experience AI:</strong> Hands-on machine learning, interactive AI systems, and examining bias, transparency, and ethics.</li>
+                        </ul>
+                    </div>
+
+                    <div class="strand">
+                        <h3>🛠️ Interactive Tools &amp; Simulators</h3>
+                        <p>Custom-built tools, web apps and simulators make abstract concepts concrete, letting students <em>explore, experiment, build — and even act concepts out</em>. This is an <strong>evolving toolkit</strong> — more will be added as the course develops:</p>
+                        <ul>
+                            <li><strong>The Digits Explorer</strong> — representing numbers with symbols and investigating number systems. <em>(Year 8 — Number Systems &amp; Logic.)</em></li>
+                            <li><strong>The Logic Trainer Simulator</strong> — learning and practising logic gates and simple circuits (and their truth tables). <em>(Year 8 — Number Systems &amp; Logic.)</em></li>
+                            <li><strong>The School Computer Simulator</strong> (<code>TheSchoolComputer.xlsx</code>) — a computer modelled as a school: the <strong>office = CPU</strong>, <strong>Primary Rooms = instructions</strong>, <strong>secondary rooms = data</strong>. Students can write and run simple programs in the spreadsheet, and can also run it <strong>unplugged</strong> — using <strong>real school locations</strong> and <strong>moving around to read and execute instructions</strong> as the computer's parts. <em>(Used in the Computer Science (HT2) units, Years 7–9 — writing programs is an extension.)</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="strand">
+                        <h3>📊 Research &amp; Presentation Projects</h3>
+                        <p>Students regularly <strong>explore, research, and search</strong> for information and communicate findings through <strong>presentations and infographics</strong>, using <strong>Microsoft apps (PowerPoint, Word, Excel)</strong> and tools such as <strong>Canva</strong>. Recurring themes:</p>
+                        <ul>
+                            <li>📊 <strong>Data Collection &amp; Analysis</strong> — gathering, analysing, and visualising data, then presenting insights responsibly.</li>
+                            <li>🛡️ <strong>E-Safety &amp; Digital Wellbeing</strong> — researching and promoting safe, ethical, positive use of technology.</li>
+                            <li>🤖 <strong>Artificial Intelligence</strong> — how AI works, its uses, benefits, limitations, and ethical impact on society.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessment -->
+            <button class="collapsible assess">
+                <span><span class="year-badge">ASSESSMENT</span>How We Assess Across KS3 (FA, SA & Rubric)</span>
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-content-inner">
+                    <div class="assess-intro">
+                        <p>Assessment is <strong>continuous and supportive</strong>, combining frequent low-stakes <strong>Formative Assessment (FA)</strong> with an end-of-unit <strong>Summative Assessment (SA)</strong> — mirroring the FA/SA checkpoints in the scheme of work.</p>
+                        <ul>
+                            <li><strong>Formative (FA):</strong> ongoing checks — questioning, live demos, peer/self-review, debugging challenges, short quizzes, and feedback on work-in-progress — used to adapt teaching and help students improve <em>before</em> the summative point.</li>
+                            <li><strong>Summative (SA):</strong> an end-of-unit judgement — usually the unit <strong>project</strong> plus a short knowledge check — reported against the shared rubric below.</li>
+                        </ul>
+                        <p>Every unit lists its <strong>learning objectives</strong>, and achievement is reported in four bands: <strong>Emerging → Developing → Secure → Mastery</strong>. Each unit is tagged with the <strong>Assessment Objective(s)</strong> it primarily develops, shown with a short plain-English label (e.g. <strong>AO1 Programming</strong>).</p>
+                        <p>Some unit content is marked <strong>Extension</strong> — <strong>deeper, more challenging work that stretches confident and high-attaining students</strong>, especially those who finish the core early or need greater demand. Extensions also provide enrichment to draw on when time allows. Everything else forms the <strong>core</strong> entitlement that all students cover.</p>
+                    </div>
+
+                    <div class="rubric-scroll">
+                        <table class="rubric">
+                            <thead>
+                                <tr>
+                                    <th class="ao">Assessment Objective</th>
+                                    <th class="b-emerging">Emerging</th>
+                                    <th class="b-developing">Developing</th>
+                                    <th class="b-secure">Secure</th>
+                                    <th class="b-mastery">Mastery</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="ao">AO1 — Computational Thinking & Programming</td>
+                                    <td class="d-emerging">With support, follows and runs simple sequences; spots obvious errors with help.</td>
+                                    <td class="d-developing">Uses sequence, selection and iteration in guided tasks; debugs simple errors independently.</td>
+                                    <td class="d-secure">Designs and builds working programs with variables, loops and conditionals; decomposes problems and fixes most errors independently.</td>
+                                    <td class="d-mastery">Designs efficient, well-structured solutions using procedures/abstraction; debugs systematically, explains design choices, and transfers skills between blocks and Python.</td>
+                                </tr>
+                                <tr>
+                                    <td class="ao">AO2 — Digital Literacy & Productivity</td>
+                                    <td class="d-emerging">Logs in and saves work with support; uses basic features of an app.</td>
+                                    <td class="d-developing">Manages files in OneDrive and uses email and core apps for set tasks.</td>
+                                    <td class="d-secure">Independently chooses and uses the right Microsoft 365 / Canva tools to produce clear work; manages account and files responsibly.</td>
+                                    <td class="d-mastery">Combines tools fluently and efficiently to produce polished, audience-appropriate outcomes, and supports others.</td>
+                                </tr>
+                                <tr>
+                                    <td class="ao">AO3 — Computer Systems, Networks & Data</td>
+                                    <td class="d-emerging">Recognises basic terms (e.g. binary, input, data, network) with support.</td>
+                                    <td class="d-developing">Explains simple concepts (number systems, logic, hardware/software, networks, data) in familiar contexts.</td>
+                                    <td class="d-secure">Accurately explains how systems represent and process data and instructions, and how data travels across networks; collects and analyses data correctly.</td>
+                                    <td class="d-mastery">Connects concepts (binary, logic, CPU, storage, the internet) to reason about <em>why</em> systems and networks behave as they do, and draws valid conclusions from data.</td>
+                                </tr>
+                                <tr>
+                                    <td class="ao">AO4 — Creativity, Design & Project Work</td>
+                                    <td class="d-emerging">Completes a guided creative task; needs prompting to plan or improve.</td>
+                                    <td class="d-developing">Plans, makes and tests a product with some independence.</td>
+                                    <td class="d-secure">Independently plans, designs, develops, tests and presents a complete project, responding to feedback.</td>
+                                    <td class="d-mastery">Produces an ambitious, original, well-tested project; iterates from feedback and confidently presents/justifies it (e.g. for Coolest Projects).</td>
+                                </tr>
+                                <tr>
+                                    <td class="ao">AO5 — Digital Citizenship, E-Safety & Ethics</td>
+                                    <td class="d-emerging">States basic e-safety rules with support.</td>
+                                    <td class="d-developing">Describes safe, responsible behaviour and applies it when reminded.</td>
+                                    <td class="d-secure">Consistently works safely and ethically; explains risks and responsible choices (data, AI, online identity).</td>
+                                    <td class="d-mastery">Evaluates ethical, privacy and societal issues (including AI bias and transparency) and advocates responsible use.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year 7 Section -->
+            <button class="collapsible">
+                <span><span class="year-badge">YEAR 7</span>Computing Foundations & Digital Literacy</span>
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-content-inner">
+                    <p style="margin-bottom: 25px; font-style: italic; color: #666;">In Year 7, students build a strong foundation in digital skills and begin developing computational thinking. The year focuses on becoming confident, safe, and creative users of technology, while starting to think like computer scientists.</p>
+
+                    <div class="term">
+                        <h3>HT1: Microsoft 365 (Part I) – Getting Started</h3>
+                        <p><strong>Topics covered:</strong> After a start on <strong>E-Safety and digital wellbeing</strong> (online safety, privacy, online identity), the unit focuses on <strong>learning and practising the core Microsoft 365 apps</strong>: saving and organising work in <strong>OneDrive</strong>, using <strong>Teams</strong> and <strong>email</strong>, creating and formatting documents in <strong>Word</strong>, building presentations in <strong>PowerPoint</strong>, and taking <strong>first steps with data in Excel</strong> (entering data and making a simple chart). Students also get a <strong>brief introduction</strong> to using <strong>everyday AI</strong> responsibly — revisited in more depth later.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students create a <strong>presentation or infographic</strong> — e.g. <em>"Pros and Cons of Living in a Digital World"</em> — promoting safe, positive technology use, including <strong>some simple data they have gathered and charted</strong> in Excel.</p>
+                        <p class="ext"><strong>Extension:</strong> Go further in <strong>Excel</strong> — use functions like <strong>SUM and AVERAGE</strong>, <strong>sort and filter</strong> data, or add <strong>conditional formatting</strong> to highlight key results.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can save and organise files in OneDrive, use Teams and email, create and format a document in Word, build a presentation in PowerPoint, enter and chart simple data in Excel, explain key e-safety principles, and use AI tools responsibly.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — login/file and spreadsheet tasks, an e-safety &amp; AI-awareness quiz, draft feedback. <em>Summative</em> — a data-informed presentation/infographic + a brief e-safety/AI check. <strong>(AO2 Digital Literacy · AO3 Systems &amp; Data · AO5 Citizenship &amp; E-Safety)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT2: Algorithms, Logic & Computer Basics</h3>
+                        <p><strong>Topics covered:</strong> Students explore what <strong>algorithms</strong> are and how they describe everyday processes, learning to represent them using <strong>flowcharts and pseudo-code</strong>. They are then introduced to <strong>Turing Tumble</strong> — a marble-powered mechanical computer, used as both a <strong>physical device</strong> and an online <strong>simulator</strong> — learning <strong>how the machine works</strong> (board, blue/red marbles, gravity, release levers) and using <strong>ramps</strong> to build <strong>simple paths</strong> that route the marbles, making sequence and logic hands-on. They also meet <strong>The School Computer Simulator</strong> (<code>TheSchoolComputer.xlsx</code>) and learn the <strong>main parts of a computer</strong> (CPU, memory, I/O). 🔗 <a href="https://upperstory.com/en/turingtumble/" target="_blank" rel="noopener">Turing Tumble</a> · <a href="https://jessecrossen.github.io/ttsim/" target="_blank" rel="noopener">Simulator (ttsim)</a></p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students <strong>design, build and test a simple Turing Tumble path</strong> (on the physical device and/or simulator) that routes marbles to a chosen outcome, representing their solution as an <strong>algorithm</strong> (flowchart/pseudo-code) and debugging it.</p>
+                        <p class="ext"><strong>Extension:</strong> Use a <strong>small set of simple instructions</strong> in The School Computer to write and run a first low-level program (on screen or as an unplugged "human computer" activity).</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can explain what an algorithm is, represent it as a flowchart and pseudo-code, name the main parts of a computer (CPU, memory, I/O), and build and test a simple Turing Tumble path.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — unplugged tasks, flowchart starters, Turing Tumble path challenges, peer-checking. <em>Summative</em> — a working Turing Tumble path, with its algorithm. <strong>(AO1 Programming · AO3 Systems &amp; Data)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT3: Scratch (Part I) – Introduction to Programming</h3>
+                        <p><strong>Topics covered:</strong> Students are introduced to programming through <strong>Scratch</strong>, using <strong>sequence, variables, loops, and conditionals</strong> to control sprites, motion, and behaviour, and to add simple interactivity.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Design an <strong>interactive game or animation</strong>, demonstrating an understanding of program structure and debugging.</p>
+                        <p class="ext"><strong>Extension:</strong> Add a <strong>score, a timer, or a second level</strong> to your game, or a <strong>start screen</strong> with instructions.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can use sequence, variables, loops and conditionals, and build and debug an interactive program.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — guided builds and debugging challenges. <em>Summative</em> — an interactive game or animation. <strong>(AO1 Programming)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT4: Micro:bit (Part I) – Introduction to Physical Computing</h3>
+                        <p><strong>Topics covered:</strong> First steps into <strong>physical computing</strong> with the <strong>BBC Micro:bit</strong> in block-based <a href="https://makecode.microbit.org/" target="_blank" rel="noopener">MakeCode</a> — controlling hardware through the <strong>LED display, A and B buttons, and simple inputs/outputs</strong>, <strong>downloading (flashing) programs onto a physical Micro:bit</strong>, and using <strong>loops and conditionals on a real device</strong>.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> A short <strong>STEAM challenge</strong> (e.g. name badge, dice, step counter, or reaction-timer game) — plan, build, test, and debug a working device.</p>
+                        <p class="ext"><strong>Extension:</strong> Add <strong>sound or music</strong>, use the <strong>shake/tilt sensor (accelerometer)</strong>, or combine <strong>two inputs</strong> to trigger different outputs.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can program the Micro:bit with inputs/outputs, loops and conditionals, and test and debug on a real device.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — incremental build-and-test tasks. <em>Summative</em> — a STEAM device challenge. <strong>(AO1 Programming)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT5: Minecraft Education (Part I) – Explore & Build</h3>
+                        <p><strong>Topics covered:</strong> Students are introduced to <strong><a href="https://education.minecraft.net/en-us" target="_blank" rel="noopener">Minecraft Education</a></strong>, learning to <strong>navigate, build, and collaborate</strong> responsibly in a shared world. They practise <strong>digital citizenship</strong> and take first steps with <strong>Code Builder</strong>, using the <strong>Agent</strong> and simple block commands to build automatically.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> A <strong>collaborative themed build</strong> (e.g. a sustainable village or eco-world) using basic Agent automation, reflecting on teamwork and responsible online behaviour.</p>
+                        <p class="ext"><strong>Extension:</strong> Use the <strong>Agent in a loop</strong> to build a larger structure automatically (e.g. a wall or tower), or add a simple <strong>redstone mechanism</strong>.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can navigate and build in Minecraft Education, collaborate responsibly, and use Code Builder to give the Agent simple commands.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — guided build-and-code tasks and collaboration checks. <em>Summative</em> — a collaborative build with simple Agent code. <strong>(AO4 Creativity &amp; Projects · AO1 Programming)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT6: AI Foundations – Introducing Artificial Intelligence</h3>
+                        <p><strong>Topics covered:</strong> Students explore the <strong>foundations of Artificial Intelligence</strong>: <strong>what AI is</strong>, <strong>everyday examples</strong> of AI in the technology they use, how they already <strong>interact with AI</strong>, and how to use AI tools <strong>safely, responsibly and ethically</strong>. They get a <strong>first hands-on taste</strong> — e.g. exploring <strong>Google's Teachable Machine</strong> at a basic level, or an <strong>Hour of AI</strong> activity — seeing how a computer can be "trained" to recognise things.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> A short <strong>explainer</strong> (presentation or infographic) — <em>"What is AI and how do we use it responsibly?"</em> — or a simple <strong>Teachable Machine demo</strong>, reflecting on AI's everyday uses and benefits.</p>
+                        <p class="ext"><strong>Extension:</strong> Train a <strong>Teachable Machine model with more categories</strong> and <strong>test where it gets confused</strong> — discussing why it makes mistakes.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can explain what AI is, give everyday examples, describe how to use AI tools responsibly, and try a simple hands-on AI activity.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — discussion, everyday-AI examples, a short quiz, exploring an AI tool. <em>Summative</em> — an AI explainer or a simple Teachable Machine demo. <strong>(AO5 Citizenship &amp; E-Safety · AO3 Systems &amp; Data)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year 8 Section -->
+            <button class="collapsible">
+                <span><span class="year-badge">YEAR 8</span>Systems, Logic & Creativity</span>
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-content-inner">
+                    <p style="margin-bottom: 25px; font-style: italic; color: #666;">In Year 8, students think more critically about how computers work and how data is represented, processed, and communicated. They advance their programming and data-handling skills, engage in creative projects, and are introduced to how Artificial Intelligence works.</p>
+
+                    <div class="term">
+                        <h3>HT1: Microsoft 365 (Part II) – Building Fluency</h3>
+                        <p><strong>Topics covered:</strong> After <strong>E-Safety</strong> (data protection, secure communication, ethical data use), students <strong>build fluency with the Microsoft 365 apps</strong>: collaborating confidently on files in <strong>OneDrive</strong>, using <strong>email with professional etiquette</strong>, producing well-structured documents in <strong>Word</strong> (formatting, tables, images), designing effective <strong>PowerPoint</strong> presentations, and carrying out <strong>data analysis in Excel</strong> (formulas, charts, sorting and filtering), with findings presented in <strong>PowerPoint or Canva</strong>. They also build their <strong>AI awareness</strong> — recognising <strong>AI-generated content</strong> and <strong>using AI tools responsibly</strong> (revisited in depth in the HT6 AI unit).</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> A <strong>data-driven presentation</strong> integrating ICT skills with analytical thinking and responsible data management.</p>
+                        <p class="ext"><strong>Extension:</strong> Go further in <strong>Excel</strong> — <strong>advanced formulas (e.g. IF, VLOOKUP), pivot tables, or an interactive dashboard</strong> — to analyse a larger dataset.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can collaborate on files in OneDrive, use professional email, produce a well-structured Word document, design an effective PowerPoint presentation, analyse and present data in Excel (formulas, charts), and use AI tools responsibly.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — data tasks, email-etiquette check, an AI-awareness quiz, draft feedback. <em>Summative</em> — a data-driven presentation. <strong>(AO2 Digital Literacy · AO3 Systems &amp; Data · AO5 Citizenship &amp; E-Safety)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT2: Number Systems & Logic</h3>
+                        <p><strong>Topics covered:</strong> The mathematical foundations of computing. Students learn about <strong>binary and symbolic number systems</strong> using <strong>The Digits Explorer</strong>, then apply this on <strong>Turing Tumble</strong> (physical device and simulator), using <strong>bits</strong> to <strong>count in binary</strong> and release <strong>colour patterns</strong> (e.g. alternating <strong>blue-red-blue-red…</strong>). They also <strong>learn and practise how logic gates and simple circuits work</strong>, building and testing <strong>truth tables</strong> in <strong>The Logic Trainer Simulator</strong>. Returning to <strong>The School Computer</strong>, they meet a <strong>larger set of instructions</strong> and see how longer low-level programs are built and traced as the CPU fetches and executes each step. 🔗 <a href="https://upperstory.com/en/turingtumble/" target="_blank" rel="noopener">Turing Tumble</a> · <a href="https://jessecrossen.github.io/ttsim/" target="_blank" rel="noopener">Simulator (ttsim)</a></p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students <strong>program Turing Tumble</strong> (on the physical device and/or simulator) to <strong>count</strong> and release a target <strong>colour pattern</strong> (e.g. alternating <strong>blue-red-blue-red…</strong>).</p>
+                        <p class="ext"><strong>Extension:</strong> Write a <strong>longer program on The School Computer</strong> using a wider instruction set, or <strong>design an original symbolic number system</strong> in The Digits Explorer.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can convert between number systems, use Turing Tumble bits to count in binary and create colour patterns, and explain and build logic gates and simple circuits (with truth tables).</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — Digits Explorer, Logic Trainer, Turing Tumble, and School Computer instruction tasks and quizzes. <em>Summative</em> — a Turing Tumble counting/pattern program, plus a short test on number systems and logic gates <em>(extension: a longer School Computer program or an original symbolic number system)</em>. <strong>(AO3 Systems &amp; Data)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT3: Scratch (Part II) – Procedures & Procedural Graphics</h3>
+                        <p><strong>Topics covered:</strong> Building on Year 7, students extend <strong>Scratch</strong> with <strong>custom blocks (procedures), randomness, and the pen tool</strong> for procedural graphics, beginning to apply <strong>abstraction and decomposition</strong>.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students create a <strong>procedural art piece, pattern generator, or simple simulation</strong>, demonstrating reusable code.</p>
+                        <p class="ext"><strong>Extension:</strong> Use a <strong>custom block with inputs (parameters)</strong>, or combine the <strong>pen tool with randomness</strong> so the pattern is different every run.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can use custom blocks (procedures), randomness and the pen tool, and apply abstraction and decomposition.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — procedural-graphics build tasks. <em>Summative</em> — a procedural art piece, pattern generator or simple simulation. <strong>(AO1 Programming)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT4: Micro:bit (Part II) – Sensors & Data</h3>
+                        <p><strong>Topics covered:</strong> Deepening <strong>physical computing</strong> with the <strong>BBC Micro:bit</strong> in MakeCode, exploring the <strong>on-board sensors</strong> (temperature, light, accelerometer, compass) and learning to <strong>capture, process, and respond to real-world data</strong>.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> A <strong>STEAM data project</strong> — a prototype that senses and responds to the physical world (e.g. environment monitor, motion alarm, smart wearable), considering safety and sustainability.</p>
+                        <p class="ext"><strong>Extension:</strong> <strong>Log sensor readings over time</strong> (data logging) and review the results, or combine <strong>two sensors</strong> for a smarter response.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can use on-board sensors to capture and respond to real-world data, and build a working sensing prototype.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — sensor experiments and incremental builds. <em>Summative</em> — a STEAM sensing project. <strong>(AO1 Programming · AO3 Systems &amp; Data)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT5: Minecraft Education (Part II) – Build & Code</h3>
+                        <p><strong>Topics covered:</strong> Building on Year 7, students use <strong>Code Builder</strong> with <strong>loops, conditionals and coordinates</strong> to automate larger builds, through a <strong>cross-curricular STEAM challenge</strong> (e.g. recreating a historical site or modelling a science concept), while discussing <strong>intellectual property, copyright, and responsible sharing</strong>.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> A <strong>coded build or simulation</strong> that meets a cross-curricular brief, demonstrating automation and problem-solving.</p>
+                        <p class="ext"><strong>Extension:</strong> Write a <strong>reusable Code Builder function</strong>, or use <strong>coordinates and loops</strong> to build a large patterned structure.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can use loops, conditionals and coordinates in Code Builder, and apply awareness of intellectual property and copyright when sharing.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — coding challenges and peer feedback. <em>Summative</em> — a coded STEAM build. <strong>(AO1 Programming · AO4 Creativity &amp; Projects · AO5 Citizenship &amp; E-Safety)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT6: AI Literacy – How AI Works</h3>
+                        <p><strong>Topics covered:</strong> The foundations of <strong>Artificial Intelligence</strong>: what AI is, <strong>everyday examples</strong>, and <strong>how AI systems work</strong>, including their <strong>benefits, limitations, and common errors</strong>, with <strong>ethical and responsible use</strong> central throughout.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students <strong>research and present</strong> on an aspect of AI — how it works, where it is used, and its impact on society — as a <strong>presentation or infographic</strong> (PowerPoint or Canva).</p>
+                        <p class="ext"><strong>Extension:</strong> Investigate a <strong>real AI system</strong> (e.g. a recommender or chatbot) — how it works, and its <strong>benefits and risks/bias</strong> — and present your findings.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can explain what AI is and how it works, describe its uses, benefits and limitations, and discuss ethics.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — discussion, everyday-AI examples, a short quiz. <em>Summative</em> — an AI research presentation/infographic. <strong>(AO5 Citizenship &amp; E-Safety · AO3 Systems &amp; Data)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year 9 Section -->
+            <button class="collapsible">
+                <span><span class="year-badge">YEAR 9</span>Programming, Systems & Artificial Intelligence</span>
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-content-inner">
+                    <p style="margin-bottom: 25px; font-style: italic; color: #666;">Year 9 prepares students for GCSE-level computing and beyond. They develop fluency in text-based programming, deepen their understanding of computer systems, and explore emerging technologies such as AI and machine learning, with computational thinking and ethical responsibility throughout.</p>
+
+                    <div class="term">
+                        <h3>HT1: Microsoft 365 (Part III) – Independent & Efficient</h3>
+                        <p><strong>Topics covered:</strong> After <strong>E-Safety</strong> (digital footprints, cybersecurity, responsible computing), students use the <strong>Microsoft 365 apps independently and efficiently</strong> to produce <strong>polished, audience-appropriate</strong> work — confident <strong>Word, PowerPoint, OneDrive and email</strong> — and develop <strong>advanced data analysis in Excel</strong> (functions, <strong>pivot tables</strong> and charts) for a real data investigation. They continue to <strong>use AI tools responsibly</strong>, checking outputs for accuracy and bias.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students carry out a <strong>data investigation</strong> — gathering or using a dataset, <strong>analysing it in Excel</strong>, and presenting clear, evidence-based findings as a presentation or infographic.</p>
+                        <p class="ext"><strong>Extension:</strong> Build an <strong>interactive dashboard</strong>, model a <strong>larger dataset</strong>, or <strong>clean and validate messy data</strong> for more reliable analysis.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can use the Microsoft 365 apps independently to produce polished work, carry out advanced data analysis in Excel (functions, pivot tables, charts), apply cyber-safety principles, and use AI tools responsibly.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — data-analysis tasks and a cyber-safety/AI quiz. <em>Summative</em> — a data investigation presented as a clear, evidence-based report or infographic. <strong>(AO2 Digital Literacy · AO3 Systems &amp; Data · AO5 Citizenship &amp; E-Safety)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT2: Computer Science – Computer Systems, Networks & Data</h3>
+                        <p><strong>Topics covered:</strong> An explicit <strong>Computer Science</strong> unit <strong>bridging toward GCSE Computer Science</strong>, pulling together how computers and the internet work. Students explore <strong>computer systems</strong> — <strong>hardware and software</strong>, the <strong>CPU</strong>, and how it <strong>fetches and executes instructions</strong> — seeing the <strong>fetch–execute cycle</strong> in action with <strong>The School Computer Simulator</strong> (<code>TheSchoolComputer.xlsx</code>; office = CPU, Primary Rooms = instructions, secondary rooms = data), which they can also run as an <strong>unplugged "human computer" activity</strong> around school. They study <strong>how networks and the internet work</strong> — what a <strong>network</strong> is, the <strong>internet vs the World Wide Web</strong>, <strong>how data travels</strong> (IP addresses, packets, client–server), key <strong>protocols (HTTP, DNS)</strong>, how <strong>web pages are requested and served</strong>, and <strong>network security</strong>. Finally they explore <strong>data representation</strong>: how <strong>binary</strong> represents <strong>text</strong> (ASCII), <strong>images</strong> (pixels) and <strong>sound</strong> (samples).</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students produce a <strong>"How it works" explainer</strong> (presentation or infographic, in <strong>PowerPoint or Canva</strong>) on a chosen topic — e.g. <em>how the CPU runs a program</em>, <em>how a web page travels from server to screen</em>, or <em>how an image is stored in binary</em>.</p>
+                        <p class="ext"><strong>Extension:</strong> Go hands-on or deeper — <strong>write and run a School Computer program using conditional jumps</strong> (decisions and loops); build <strong>AND/OR logic in Turing Tumble</strong> (gears, gear bits, crossovers); or explore <strong>hexadecimal, file sizes &amp; compression, or encryption</strong>. 🔗 <a href="https://upperstory.com/en/turingtumble/" target="_blank" rel="noopener">Turing Tumble</a> · <a href="https://jessecrossen.github.io/ttsim/" target="_blank" rel="noopener">Simulator (ttsim)</a></p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can explain how computers work (hardware/software, the CPU and the fetch–execute cycle), how networks and the internet work (protocols and security), and how <strong>text, images and sound</strong> are represented in <strong>binary</strong>.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — computer-systems, networks and data-representation tasks with short quizzes. <em>Summative</em> — a "How it works" explainer plus a short knowledge test on computer systems, networks and data representation. <strong>(AO3 Systems &amp; Data)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT3: Scratch (Part III) – Animations, Games & Simulations</h3>
+                        <p><strong>Topics covered:</strong> The final stage of the Scratch strand — students build their most ambitious projects using <strong>multiple sprites, layers, cloning, broadcasting/events, and custom scripts</strong> to create polished interactive <strong>games and simulations</strong>, consolidating <strong>abstraction and decomposition</strong>.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> An <strong>interactive game or educational simulation / teaching tool</strong> that tells a story or solves a problem.</p>
+                        <p class="ext"><strong>Extension:</strong> Add <strong>cloning</strong> for many objects, a <strong>high-score list (lists)</strong>, or <strong>adjustable difficulty</strong> to your game or simulation.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can build a complex game or simulation using sprites, cloning, events and custom scripts, and apply abstraction.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — feature-by-feature build tasks. <em>Summative</em> — an interactive game or educational simulation. <strong>(AO1 Programming · AO4 Creativity &amp; Projects)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT4: Micro:bit (Part III) – Communication, IoT & Python</h3>
+                        <p><strong>Topics covered:</strong> The most advanced stage of the physical-computing strand — using the <strong>BBC Micro:bit</strong> in MakeCode to explore <strong>wireless radio communication between devices</strong> and build simple <strong>networked / Internet-of-Things (IoT) projects</strong> — the main focus of the unit. They then get a <strong>first taste of text-based programming</strong>, re-using the same device with <strong><a href="https://python.microbit.org/" target="_blank" rel="noopener">MicroPython</a></strong>: writing a <strong>few lines of Python</strong> to make the Micro:bit do something simple and seeing how familiar ideas look in text rather than blocks — lowering the barrier to written syntax and bridging toward GCSE.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Teams build a <strong>multi-device system</strong> in MakeCode (e.g. a messaging network, remote sensor link, or step-counter leaderboard), applying <strong>data communication</strong> concepts and discussing the security and privacy of connected devices.</p>
+                        <p class="ext"><strong>Extension:</strong> Make the full <strong>blocks → text</strong> leap in <strong>Python (MicroPython)</strong> — <strong>write and debug your own program</strong> (variables, I/O, loops, conditionals), then go further with <strong>functions, lists, or combining sensors with radio</strong>. (Or build a larger 3+ Micro:bit network.)</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can use radio to communicate between devices, build a networked/IoT prototype, and <strong>write and run a few lines of Python</strong> on the Micro:bit, recognising variables, loops and conditionals in text.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — radio/networking tasks and short Python read-and-tweak exercises. <em>Summative</em> — a multi-device system (with a few lines of Python as a first taste). <strong>(AO1 Programming · AO3 Systems &amp; Data · AO5 Citizenship &amp; E-Safety)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT5: Minecraft Education (Part III) – Code & Create</h3>
+                        <p><strong>Topics covered:</strong> In the final stage of the strand, students code in Minecraft with <strong>MakeCode</strong> and apply their <strong>Python</strong> start (from the Micro:bit unit) in <strong>Code Builder</strong>, tackling larger <strong>collaborative problem-solving builds</strong> linked to <strong>Computer Science concepts</strong> (algorithms, automation, decomposition). They may also explore <strong>AI lessons</strong> within Minecraft Education.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> A <strong>coded world or solution</strong> that meets a self-chosen brief — a creative capstone combining building, coding and collaboration.</p>
+                        <p class="ext"><strong>Extension:</strong> Solve the brief using <strong>Python in Code Builder</strong>, or build an <strong>automated / interactive system</strong> (e.g. a sensor-triggered build or mini-game).</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can solve problems by coding in Minecraft (blocks and a taste of Python), and collaborate on a complex build.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — coding tasks and milestone reviews. <em>Summative</em> — a coded Minecraft project. <strong>(AO1 Programming · AO4 Creativity &amp; Projects)</strong></p>
+                    </div>
+
+                    <div class="term">
+                        <h3>HT6: Experience AI – Foundations and Innovation</h3>
+                        <p><strong>Topics covered:</strong> A hands-on, two-part exploration of AI. <strong>Experience AI (I):</strong> <strong>machine learning, large language models (LLMs), and AI ethics</strong>, training simple models with <strong>Google's Teachable Machine</strong>. <strong>Experience AI (II):</strong> creating <strong>interactive AI systems</strong> (e.g. "Dancing with AI"), introducing <strong>human-computer interaction</strong>.</p>
+                        <p style="margin-top: 12px;"><strong>Project:</strong> Students <strong>research and present</strong> on AI — its uses, benefits, limitations, and issues of <strong>bias, transparency, and responsible use</strong> — as a presentation or infographic (PowerPoint or Canva), alongside their hands-on AI build.</p>
+                        <p class="ext"><strong>Extension:</strong> Improve your model's <strong>accuracy</strong> with more/better data, or explore <strong>prompt design with an LLM</strong> and evaluate its <strong>bias and reliability</strong>.</p>
+                        <p style="margin-top: 10px;"><strong>Objectives:</strong> Students can train a simple machine-learning model, explain ML and LLM basics, and evaluate bias, transparency and ethics.</p>
+                        <p style="margin-top: 6px;"><strong>Assessment:</strong> <em>Formative</em> — Teachable Machine experiments and discussion. <em>Summative</em> — an AI research presentation + interactive AI build. <strong>(AO5 Citizenship &amp; E-Safety · AO1 Programming)</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progression Section -->
+            <div class="progression-section">
+                <h2>Progression Across KS3</h2>
+                <p style="text-align: center; margin-bottom: 25px; color: #666; font-style: italic;">By the end of KS3, students will have:</p>
+                <ul>
+                    <li>Built strong <strong>digital literacy and productivity</strong> — becoming fluent with the <strong>Microsoft 365 apps</strong> (Word, Excel, PowerPoint, OneDrive, Teams, email) and tools such as <strong>Canva</strong> — managing files and accounts safely and responsibly. <em>(AO2 Digital Literacy)</em></li>
+                    <li>Developed <strong>computational thinking</strong> — algorithms, logical reasoning, abstraction, and decomposition — and applied it to unplugged, mechanical (Turing Tumble), low-level instruction-based (The School Computer), and programming tasks. <em>(AO1 Programming)</em></li>
+                    <li>Progressed from <strong>visual, block-based programming</strong> (Scratch: blocks → procedures → simulations) toward <strong>text-based programming</strong>, with a <strong>first taste of Python</strong> introduced through the Micro:bit. <em>(AO1 Programming)</em></li>
+                    <li>Built a sustained understanding of <strong>physical computing</strong> with the BBC Micro:bit — from LEDs and buttons (Y7), to sensors and data (Y8), to radio/IoT and MicroPython (Y9). <em>(AO1 Programming)</em></li>
+                    <li>Understood <strong>how computers, networks and data work</strong> — number systems, logic, hardware/software, the CPU and the <strong>fetch–execute cycle</strong>, how the internet works, and how <strong>data is represented</strong> (text, images, sound) — and collected, analysed, and presented data responsibly. <em>(AO3 Systems &amp; Data)</em></li>
+                    <li>Explored the fundamentals of <strong>Artificial Intelligence</strong> — from AI foundations, to AI literacy, to hands-on machine learning — evaluating its ethics and impact on society. <em>(AO5 Citizenship &amp; E-Safety · AO3 Systems &amp; Data)</em></li>
+                    <li>Applied <strong>creativity, design, and independence</strong> to original digital projects — including <strong>creative coding and collaboration in Minecraft Education</strong> — researching, presenting, and working towards <strong>Coolest Projects</strong>. <em>(AO4 Creativity &amp; Projects)</em></li>
+                    <li>Consistently applied <strong>e-safety and digital ethics</strong>, and reflected on their progress against the <strong>Emerging → Developing → Secure → Mastery</strong> rubric. <em>(AO5 Citizenship &amp; E-Safety)</em></li>
+                </ul>
+            </div>
+
+            <!-- KS3 → GCSE Pathway -->
+            <div class="progression-section">
+                <h2>🎓 KS3 → GCSE Pathway</h2>
+                <p style="text-align: center; margin-bottom: 25px; color: #666; font-style: italic;">KS3 is taught for its own sake, but it deliberately lays the groundwork for GCSE Computer Science. This shows where each major GCSE topic is <strong>first introduced</strong> (and, where relevant, revisited) — making the route into KS4 explicit.</p>
+                <table class="pathway">
+                    <thead>
+                        <tr><th>GCSE Topic</th><th>First introduced (→ revisited)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Algorithms</strong> — flowcharts &amp; pseudo-code</td><td>Y7 HT2</td></tr>
+                        <tr><td><strong>Programming constructs</strong> — sequence, selection, iteration, variables</td><td>Y7 HT3 (Scratch)</td></tr>
+                        <tr><td><strong>Procedures / subroutines &amp; abstraction</strong></td><td>Y8 HT3 (Scratch)</td></tr>
+                        <tr><td><strong>Computer architecture</strong> — CPU, memory, input/output</td><td>Y7 HT2</td></tr>
+                        <tr><td><strong>Fetch–execute cycle</strong></td><td>Y8 HT2 → Y9 HT2</td></tr>
+                        <tr><td><strong>Binary &amp; number systems</strong></td><td>Y8 HT2</td></tr>
+                        <tr><td><strong>Boolean logic</strong> — logic gates &amp; truth tables</td><td>Y8 HT2</td></tr>
+                        <tr><td><strong>Data representation</strong> — text, images, sound</td><td>Y9 HT2</td></tr>
+                        <tr><td><strong>Networks &amp; the internet</strong> — protocols, client–server</td><td>Y9 HT2</td></tr>
+                        <tr><td><strong>Network &amp; cyber security</strong></td><td>Y9 HT2 (e-safety throughout)</td></tr>
+                        <tr><td><strong>Text-based programming (Python)</strong></td><td>Y9 HT4 → Y9 HT5</td></tr>
+                        <tr><td><strong>Physical computing, embedded systems &amp; IoT</strong></td><td>Y7 HT4 → Y9 HT4</td></tr>
+                        <tr><td><strong>Impacts &amp; ethics of technology (incl. AI)</strong></td><td>Y7 HT6 (AI) — and throughout</td></tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; margin-top: 20px; color: #666; font-style: italic;">By the time students reach KS4, every core GCSE strand has already been met at least once in a concrete, hands-on form.</p>
+            </div>
+
+            <div class="footer-note">
+                Each stage of the KS3 curriculum builds progressively on the previous one, ensuring a clear and coherent development of knowledge, skills, and understanding. By the end of the course, students have become confident, capable, and creative users of technology, as well as informed, responsible, and ethical digital citizens — well prepared to continue their studies in GCSE Computer Science, ICT, or other digital technology pathways.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const collapsibles = document.querySelectorAll('.collapsible');
+
+        collapsibles.forEach(collapsible => {
+            collapsible.addEventListener('click', function() {
+                this.classList.toggle('active');
+
+                const content = this.nextElementSibling;
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
